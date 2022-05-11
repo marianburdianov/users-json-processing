@@ -1,8 +1,11 @@
 package com.example.usersjsonprocessing.http;
 
+import org.springframework.stereotype.Component;
+
 import java.net.URI;
 import java.net.http.HttpRequest;
 
+@Component
 public class HttpRequestInstanceImpl implements HttpRequestInstance {
     private final String url = "https://jsonplaceholder.typicode.com/users";
 

@@ -13,10 +13,10 @@ create table if not exists company
             references public.users (user_id)
 );
 
-insert into company(user_id, name, catch_phrase, bs)
-values (1, 'Romaguera-Crona', 'Multi-layered client-server neural-net', 'harness real-time e-markets');
-insert into company(user_id, name, catch_phrase, bs)
-values (2, 'Deckow-Crist', 'Proactive didactic contingency', 'synergize scalable supply-chains');
-
-select *
-from company;
+-- insert into company(user_id, name, catch_phrase, bs)
+-- values (1, 'Romaguera-Crona', 'Multi-layered client-server neural-net', 'harness real-time e-markets');
+-- insert into company(user_id, name, catch_phrase, bs)
+-- values (2, 'Deckow-Crist', 'Proactive didactic contingency', 'synergize scalable supply-chains');
+--
+-- select *
+-- from company;

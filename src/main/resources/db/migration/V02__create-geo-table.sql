@@ -13,10 +13,10 @@ create table if not exists geo
     unique (lat, lng)
 );
 
-insert into geo(address_id, lat, lng)
-values (1, -37.3159, 81.1496);
-insert into geo(address_id, lat, lng)
-values (2, -43.9509, -34.4618);
-
-select *
-from geo;
+-- insert into geo(address_id, lat, lng)
+-- values (1, -37.3159, 81.1496);
+-- insert into geo(address_id, lat, lng)
+-- values (2, -43.9509, -34.4618);
+--
+-- select *
+-- from geo;

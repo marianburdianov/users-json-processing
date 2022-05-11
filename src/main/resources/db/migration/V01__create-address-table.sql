@@ -14,10 +14,10 @@ create table if not exists address
             references public.users(user_id)
 );
 
-insert into address(user_id, street, suite, city, zipcode)
-values (1, 'Kulas Light', 'Apt. 556', 'Gwenborough', '924395-543');
-insert into address(user_id, street, suite, city, zipcode)
-values (2, 'Victor Plains', 'Suite 879', 'Wisokyburgh', '924395-543');
-
-select *
-from address;
+-- insert into address(user_id, street, suite, city, zipcode)
+-- values (1, 'Kulas Light', 'Apt. 556', 'Gwenborough', '924395-543');
+-- insert into address(user_id, street, suite, city, zipcode)
+-- values (2, 'Victor Plains', 'Suite 879', 'Wisokyburgh', '924395-543');
+--
+-- select *
+-- from address;
