@@ -2,7 +2,9 @@ package com.example.usersjsonprocessing.service;
 
 import com.example.usersjsonprocessing.entity.User;
 
-public interface UserService {
+import java.io.IOException;
 
-    User save(User user);
+public interface UserService {
+    User save(User user) throws IOException, InterruptedException;
+    void fillUserObject() throws IOException, InterruptedException;
 }

@@ -1,10 +1,11 @@
 package com.example.usersjsonprocessing.controller;
 
-import com.example.usersjsonprocessing.entity.User;
 import com.example.usersjsonprocessing.http.*;
 import com.example.usersjsonprocessing.processor.ResponseInstanceProcessor;
+import com.example.usersjsonprocessing.service.AddressService;
+import com.example.usersjsonprocessing.service.CompanyService;
+import com.example.usersjsonprocessing.service.GeoService;
 import com.example.usersjsonprocessing.service.UserService;
-import com.google.gson.Gson;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -17,6 +18,9 @@ public class UserController {
 
     private final ResponseInstanceProcessor responseInstanceProcessor;
     private final UserService userService;
+    private final CompanyService companyService;
+    private final AddressService addressService;
+    private final GeoService geoService;
 
     @GetMapping("/users")
     void processUsers() throws IOException, InterruptedException {
@@ -26,14 +30,9 @@ public class UserController {
         httpResponseInstance.getHttpResponseInstance();
         System.out.println(httpResponseInstance.getHttpResponseInstance().body());
         System.out.println(httpResponseInstance.getHttpResponseInstance().statusCode());
-
-        for (Object o : responseInstanceProcessor.getJsonBodyAsJsonArray()) {
-
-            Gson json = new Gson();
-            User user = json.fromJson(o.toString(), User.class);
-
-            userService.save(user);
-
-        }
+        userService.fillUserObject();
+        companyService.fillCompanyObject();
+        addressService.fillAddressObject();
+        geoService.fillGeoObject();
     }
 }

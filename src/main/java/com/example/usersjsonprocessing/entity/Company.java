@@ -21,7 +21,7 @@ public class Company {
     @Column(name = "company_id")
     private Long companyId;
     @Column(name = "user_id")
-    private Long user_id;
+    private Long userId;
     @Column(name = "name")
     private String name;
     @Column(name = "catch_phrase")

@@ -11,7 +11,7 @@ create table if not exists address
     zipcode    varchar(20) default null,
     constraint fk_users
         foreign key (user_id)
-            references public.users(user_id)
+            references public.users (user_id)
 );
 
 -- insert into address(user_id, street, suite, city, zipcode)

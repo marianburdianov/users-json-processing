@@ -21,6 +21,8 @@ public class Geo {
     @GeneratedValue(generator = "increment")
     @Column(name = "geo_id")
     private Long geoId;
+    @Column(name = "address_id")
+    private Long addressId;
     @Column(name = "lat")
     private Double lat;
     @Column(name = "lng")
