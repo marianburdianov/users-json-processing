@@ -1,5 +1,6 @@
 package com.example.usersjsonprocessing.controller;
 
+import com.example.usersjsonprocessing.filewriter.FileWriterDecl;
 import com.example.usersjsonprocessing.http.*;
 import com.example.usersjsonprocessing.processor.ResponseInstanceProcessor;
 import com.example.usersjsonprocessing.service.AddressService;
@@ -21,6 +22,7 @@ public class UserController {
     private final CompanyService companyService;
     private final AddressService addressService;
     private final GeoService geoService;
+    private final FileWriterDecl fileWriter;
 
     @GetMapping("/users")
     void processUsers() throws IOException, InterruptedException {
@@ -28,11 +30,15 @@ public class UserController {
         HttpRequestInstance httpRequestInstance = new HttpRequestInstanceImpl();
         HttpResponseInstance httpResponseInstance = new HttpResponseInstanceImpl(httpClientInstance, httpRequestInstance);
         httpResponseInstance.getHttpResponseInstance();
-        System.out.println(httpResponseInstance.getHttpResponseInstance().body());
-        System.out.println(httpResponseInstance.getHttpResponseInstance().statusCode());
+
         userService.fillUserObject();
         companyService.fillCompanyObject();
         addressService.fillAddressObject();
         geoService.fillGeoObject();
+
+        int count = responseInstanceProcessor.getCountOfObjectsFromRequestedJson();
+        int statusCode = responseInstanceProcessor.getStatusCode();
+        fileWriter.writeToFile(count, statusCode);
+
     }
 }
