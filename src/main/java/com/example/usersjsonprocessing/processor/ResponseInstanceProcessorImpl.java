@@ -25,4 +25,9 @@ public class ResponseInstanceProcessorImpl implements ResponseInstanceProcessor 
     public int getStatusCode() throws IOException, InterruptedException {
         return httpResponseInstance.getHttpResponseInstance().statusCode();
     }
+
+    @Override
+    public int getCountOfObjectsFromRequestedJson() throws IOException, InterruptedException {
+        return getJsonBodyAsJsonArray().size();
+    }
 }

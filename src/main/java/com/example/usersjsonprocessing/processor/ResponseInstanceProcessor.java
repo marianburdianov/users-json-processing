@@ -7,4 +7,5 @@ import java.io.IOException;
 public interface ResponseInstanceProcessor {
     JsonArray getJsonBodyAsJsonArray() throws IOException, InterruptedException;
     int getStatusCode() throws IOException, InterruptedException;
+    int getCountOfObjectsFromRequestedJson() throws IOException, InterruptedException;
 }
