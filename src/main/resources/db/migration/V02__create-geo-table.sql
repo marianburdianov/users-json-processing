@@ -9,7 +9,8 @@ create table if not exists geo
     lng        double precision,
     constraint fk_address
         foreign key (address_id)
-            references public.address (address_id),
+            references public.address (address_id)
+            on delete cascade,
     unique (lat, lng)
 );
 

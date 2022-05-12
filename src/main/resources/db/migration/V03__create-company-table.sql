@@ -11,6 +11,7 @@ create table if not exists company
     constraint fk_users
         foreign key (user_id)
             references public.users (user_id)
+            on delete cascade
 );
 
 -- insert into company(user_id, name, catch_phrase, bs)

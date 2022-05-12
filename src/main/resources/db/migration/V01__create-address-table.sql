@@ -12,6 +12,7 @@ create table if not exists address
     constraint fk_users
         foreign key (user_id)
             references public.users (user_id)
+            on delete cascade
 );
 
 -- insert into address(user_id, street, suite, city, zipcode)
